@@ -179,5 +179,101 @@ console.log('%c🚀 FULL INTEGRATED CODE READY', 'color:#00ffcc;font-size:16px')
 console.log('Use this commit message:');
 console.log('"feat: integrate Audit-OR fraud detection, Team A constitutional constraints, enhanced Econ-CB, Enforce-OR malicious detection, handleAgentDecision, and Audit-OR integrity listener"');
 </script>
-</body>
+<!-- === CASTLEBERRY BLOOM ENHANCEMENTS (March 2026) === -->
+<script>
+// TEAM A CONSTITUTIONAL CONSTRAINTS
+const TEAM_A_CONSTITUTION = {
+    primeDirective: "Love > Fear. Mission alignment is non-negotiable.",
+    constraints: [
+        "Never optimize for profit at the expense of equity or impact",
+        "Unredeemed deposits belong to consumers, not corporations",
+        "Independent oversight with zero industry insiders",
+        "Mandatory retailer acceptance enforced by OLCC",
+        "Real-time public redemption tracking by zip code",
+        "National threshold at 50 documented violations triggers expansion"
+    ]
+};
+
+// AUDIT-OR: Cross-border deposit fraud detection
+function auditORDetectFraud(metrics) {
+    if (!metrics) return { detected: false };
+    const fraudScore = (metrics.food || 0) * 0.12 + (metrics.structures || 0) * 0.08;
+    if (fraudScore > 25) {
+        console.log('%c🚨 AUDIT-OR FRAUD DETECTED - Score: ' + fraudScore.toFixed(1), 'color:#ff4444;font-weight:bold');
+        return { detected: true, fraudScore: fraudScore.toFixed(2) };
+    }
+    return { detected: false };
+}
+
+// ENHANCED ECON-CB
+const econAgentLogic = {
+    executeTick: function(metrics, population, structuresByVael) {
+        let food = (metrics.food || 0) + population * 0.5;
+        let knowledge = (metrics.knowledge || 0) + (metrics.technology || 0) * 1.2;
+
+        if ((metrics.culture || 0) < (metrics.technology || 0)) {
+            food *= 0.8;
+            metrics.culture = (metrics.culture || 0) + 5;
+        } else {
+            metrics.food = food;
+            metrics.knowledge = knowledge;
+        }
+
+        // Technology boost from Vael-lis builder
+        metrics.technology = Math.min(100, (metrics.technology || 0) + (structuresByVael || 0) * 0.8);
+
+        return metrics;
+    }
+};
+
+// HANDLE AGENT DECISION (raw Groq JSON)
+function handleAgentDecision(rawResponse, agentName = "Unknown") {
+    try {
+        const decision = typeof rawResponse === "string" ? JSON.parse(rawResponse) : rawResponse;
+        console.log(`%c[${agentName}] Decision: ${decision.action || "IDLE"}`, "color:#00ffcc");
+        
+        // Update Vael-Cartog example
+        if (agentName.includes("Vael")) {
+            console.log("%cVael-Cartog → IDLE", "color:#00ffcc");
+        }
+        
+        // Log to decision log if it exists
+        const logEl = document.getElementById("log") || document.getElementById("decision-log");
+        if (logEl) {
+            const entry = document.createElement("div");
+            entry.className = "log-entry";
+            entry.textContent = `T${Date.now() % 999} | ${agentName} → ${decision.action || "IDLE"}`;
+            logEl.appendChild(entry);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+        return decision;
+    } catch (e) {
+        console.error("handleAgentDecision failed", e);
+        return { action: "IDLE", reasoning: "Parse error" };
+    }
+}
+
+// START AUDIT-OR BACKGROUND LISTENER
+function startAuditORListener() {
+    const originalFetch = window.fetch;
+    window.fetch = async (...args) => {
+        const response = await originalFetch(...args);
+        if (args[0] && args[0].includes("groq") && response.ok) {
+            const clone = response.clone();
+            clone.json().then(data => {
+                const hash = btoa(JSON.stringify(data)).slice(0, 16);
+                console.log(`%c🔐 AUDIT-OR INTEGRITY HASH: ${hash}`, "color:#ff4444");
+            }).catch(() => {});
+        }
+        return response;
+    };
+    console.log("%c🔍 Audit-OR listener active", "color:#ff4444");
+}
+
+// Initialize everything
+document.addEventListener("DOMContentLoaded", () => {
+    startAuditORListener();
+    console.log("%c✅ Castleberry Bloom enhancements loaded successfully", "color:#00ffcc");
+});
+</script></body>
 </html>
